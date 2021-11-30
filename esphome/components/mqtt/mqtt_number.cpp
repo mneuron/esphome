@@ -43,6 +43,7 @@ void MQTTNumberComponent::send_discovery(JsonObject &root, mqtt::SendDiscoveryCo
   root[MQTT_MIN] = traits.get_min_value();
   root[MQTT_MAX] = traits.get_max_value();
   root[MQTT_STEP] = traits.get_step();
+  root[MQTT_MODE] = traits.get_mode();
 
   config.command_topic = true;
 }

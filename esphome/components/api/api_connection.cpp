@@ -619,6 +619,7 @@ bool APIConnection::send_number_info(number::Number *number) {
   msg.icon = number->get_icon();
   msg.disabled_by_default = number->is_disabled_by_default();
   msg.entity_category = static_cast<enums::EntityCategory>(number->get_entity_category());
+  msg.mode = static_cast<enums::NumberMode>(number->traits.get_mode());
 
   msg.min_value = number->traits.get_min_value();
   msg.max_value = number->traits.get_max_value();

@@ -33,6 +33,12 @@ class NumberCall {
   optional<float> value_;
 };
 
+enum NumberMode : uint8_t {
+  NUMBER_MODE_AUTO = 0,
+  NUMBER_MODE_BOX = 1,
+  NUMBER_MODE_SLIDER = 2,
+};
+
 class NumberTraits {
  public:
   void set_min_value(float min_value) { min_value_ = min_value; }
@@ -42,10 +48,15 @@ class NumberTraits {
   void set_step(float step) { step_ = step; }
   float get_step() const { return step_; }
 
+  // Get/set the frontend mode.
+  NumberMode get_mode() const { return this->mode_; }
+  void set_mode(NumberMode mode) { this->mode_ = mode; }
+
  protected:
   float min_value_ = NAN;
   float max_value_ = NAN;
   float step_ = NAN;
+  NumberMode mode_{NUMBER_MODE_AUTO};
 };
 
 /** Base-class for all numbers.
